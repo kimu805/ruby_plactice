@@ -1,3 +1,2 @@
-p "Hello World"
-p ARGV[0]
-p ENV["PATH"]
+foo1 = :"foo1"
+puts foo1
