@@ -1,8 +1,5 @@
-def func v1
-  v1.chop!
-end
-
-v1 = "foo1"
-p v1
-p func(v1)
-p v1
+array = Array.new(10) { |i| i }
+p array
+p array[5,3]
+p array[5,3] = ["a", "b", "c"]
+p array
