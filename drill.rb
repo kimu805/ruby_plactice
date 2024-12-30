@@ -1,12 +1,11 @@
-def parrot_trouble(talking, hour)
-  if ((21..24).include?(hour) || (0..6).include?(hour)) && talking
-    puts "NG"
+def array123(array)
+  if [1,2,3].all? { |number| array.include?(number) }
+    puts "True"
   else
-    puts "OK"
+    puts "False"
   end
 end
 
-parrot_trouble(true, 6)
-parrot_trouble(true, 7)
-parrot_trouble(false, 6)
-parrot_trouble(false, 7)
+array123([1, 1, 2, 3, 1])
+array123([1, 2, 4, ])
+array123([1, 1, 2, 1, 4, 3])
