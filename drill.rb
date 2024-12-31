@@ -1,8 +1,18 @@
-def extra_end(string)
-  element = string.slice(-2, 2)
-  puts element * 3
+def calculate_points(amount, is_birthday)
+  birthday_rate = 5
+  if amount <= 999
+    point = amount * 0.03
+  else
+    point = amount * 0.05
+  end
+  
+  if is_birthday
+    point =  (point * birthday_rate)
+  end
+
+  p "ポイントは#{point.floor}点です"
 end
 
-extra_end('Hello') 
-extra_end('ab') 
-extra_end('Hi') 
+calculate_points(500, false) 
+calculate_points(2000, false) 
+calculate_points(3000, true) 
