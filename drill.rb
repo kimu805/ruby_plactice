@@ -1,18 +1,15 @@
-def calculate_points(amount, is_birthday)
-  birthday_rate = 5
-  if amount <= 999
-    point = amount * 0.03
-  else
-    point = amount * 0.05
+def fizz_buzz
+  (1..100).each do |number|
+    if number % 15 == 0
+      p "#{number} : FizzBuzz"
+    elsif number % 5 == 0
+      p "#{number} : Buzz"
+    elsif number % 3 == 0
+      p "#{number} : Fizz"
+    else
+      p "#{number}"
+    end
   end
-  
-  if is_birthday
-    point =  (point * birthday_rate)
-  end
-
-  p "ポイントは#{point.floor}点です"
 end
 
-calculate_points(500, false) 
-calculate_points(2000, false) 
-calculate_points(3000, true) 
+fizz_buzz
