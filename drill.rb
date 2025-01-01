@@ -1,14 +1,34 @@
-def near_ten(number)
-  x_ten = number.round(-1)
-  diff = (number - x_ten).abs
+# def lone_sum(array)
+#   unique_elements = array.select { |number| array.count(number) == 1 }
 
-  if diff <= 2
-    puts "#{x_ten} : #{diff} : True"
-  else
-    puts "#{x_ten} : #{diff} : False"
+#   p unique_elements.sum
+# end
+
+
+def lone_sum(array)
+  unique_array = []
+
+  array.each do |num|
+    count = 0
+
+    array.each do |i|
+      if num == i
+        count += 1
+      end
+    end
+
+    if count < 2
+      unique_array << num
+    end
   end
+
+  sum = 0
+  unique_array.each do |num|
+    sum += num
+  end
+  p sum
 end
 
-near_ten(12)
-near_ten(17)
-near_ten(19)
+lone_sum([1, 2, 3]) 
+lone_sum([3, 2, 3]) 
+lone_sum([3, 3, 3]) 
