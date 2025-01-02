@@ -1,16 +1,18 @@
-def near_ten(number)
-  total = (number / 100) + (number / 10 % 10) + (number % 10)
-  x_ten = total.round(-1)
-  
-  diff = (total - x_ten).abs
+class Person
+  attr_reader :name, :age
 
-  if diff <= 2
-    p "True"
-  else
-    p "10の倍数との差は#{diff}です"
+  def initialize(name, age)
+    @name = name
+    @age = age
   end
 end
 
-near_ten(117)
-near_ten(123)
-near_ten(111)
+class Student < Person
+  
+  def introduce
+    puts "私の名前は#{ name }です。#{ age }歳です"
+  end
+end
+
+student = Student.new("佐藤健", 30)
+student.introduce
