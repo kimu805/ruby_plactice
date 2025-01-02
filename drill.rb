@@ -1,18 +1,10 @@
-class Person
-  attr_reader :name, :age
+while true do
+  puts "【0】：カロリーを表示する、【1】：終了する"
+  input = gets.to_i
 
-  def initialize(name, age)
-    @name = name
-    @age = age
+  if input == 0
+    puts "500kcal"
+  elsif input == 1
+    exit
   end
 end
-
-class Student < Person
-  
-  def introduce
-    puts "私の名前は#{ name }です。#{ age }歳です"
-  end
-end
-
-student = Student.new("佐藤健", 30)
-student.introduce
