@@ -10,12 +10,14 @@ def post_item(a_cart)
     quantity = gets.to_i
   
     line = "---------------------------"
+    puts line
   
   # 入力された値（ハッシュオブジェクトで管理している値）と合計金額を表示する
     puts "商品名 : #{name}"
     puts "値段 : #{price}"
     puts "個数 : #{quantity}"
     puts "合計金額 : #{ price * quantity }"
+    puts " "
     
     # ハッシュを配列オブジェクトに追加する
     item = { name: name, price: price, quantity: quantity }
@@ -26,14 +28,22 @@ end
   
 def check_items(a_cart)
 # 保存された全ての商品情報（商品名・値段・個数）を、商品ごとに表示する
+  a_cart.each_with_index do |item, index|
+    puts "商品#{ index + 1 }： #{ item[:name] }"
+    puts "値段：#{ item[:price] }"
+    puts "個数：#{ item[:quantity] }"
+    puts " "
+  end
 
 # 全ての商品の合計金額を表示する
-  puts "合計金額 : "
+  total_price = a_cart.map { |item| item[:price] * item[:quantity] }
+  puts "合計金額 : #{ total_price }"
 
 end
 
 def end_program
   # プログラムを終了させる
+  exit
 end
 
 def exception
