@@ -1,13 +1,22 @@
-def get_week(year, month, day)
-  # ここに処理を書き加えてください
+def subset_sum?(set, target)
+  dp = Array.new(target + 1, false)
+  dp[0] = true
+  
+
+  set.each do |num|
+    target.downto(num) do |j|
+      dp[j] ||= dp[j - num]
+      p dp[j]
+    end
+  end
+
+  return dp[target]
 end
 
-puts "年を入力してください："
-year = gets.to_i
-puts "月を入力してください："
-month = gets.to_i
-puts "日を入力してください："
-day = gets.to_i
-
-week = get_week(year, month, day)
-puts "#{year}年#{month}月#{day}日は#{week}曜日です"
+set = [3, 34, 4, 12, 5, 2]
+target = 9
+if subset_sum?(set, target)
+  puts "はい"
+else
+  puts "いいえ"
+end
