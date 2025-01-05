@@ -1,22 +1,10 @@
-def subset_sum?(set, target)
-  dp = Array.new(target + 1, false)
-  dp[0] = true
-  
-
-  set.each do |num|
-    target.downto(num) do |j|
-      dp[j] ||= dp[j - num]
-      p dp[j]
-    end
-  end
-
-  return dp[target]
+def calculate_points(amount, is_birthday)
+  rate = amount >= 1000 ? 0.05 : 0.03
+  point = amount * rate
+  point *= 5 if is_birthday
+  puts "ポイントは#{ point.floor }点です"
 end
 
-set = [3, 34, 4, 12, 5, 2]
-target = 9
-if subset_sum?(set, target)
-  puts "はい"
-else
-  puts "いいえ"
-end
+calculate_points(500, false) 
+calculate_points(2000, false) 
+calculate_points(3000, true) 
