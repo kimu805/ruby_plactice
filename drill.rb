@@ -1,20 +1,32 @@
-require "date"
+def janken
+    hands = %W[グー チョキ パー]
+    hands.each_with_index do |hand, index|
+      puts "[#{ index }] : #{ hand }"
+    end
+    
+    player_hand = gets.to_i
+    program_hand = rand(0..2)
 
-def get_days(year, month)
-  if month < 1 || month > 12
-    return "無効な値です"
-  end
-
-  days_in_months = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
-  days_in_months[1] = 29 if Date.leap?(year)
-
-  return days_in_months[month - 1]
+    puts "あなたの手：#{ hands[player_hand] }, 私の手：#{ hands[program_hand] }"
+    
+    result = (player_hand - program_hand) % 3
+    case result
+    when 0
+      puts "あいこで..."
+      return true
+    when 1
+      puts "あなたの負けです。"
+      return false
+    when 2
+      puts "あなたの勝ちです。"
+      return false
+    end
 end
 
-puts "年を入力してください："
-year = gets.to_i
-puts "月を入力してください："
-month = gets.to_i
+next_game = true
 
-days = get_days(year, month)
-puts "#{year}年#{month}月は#{days}日間あります"
+puts "最初はグー、じゃんけん..."
+
+while next_game do
+  next_game = janken
+end
