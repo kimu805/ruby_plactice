@@ -1,81 +1,82 @@
-LINE = "------------------------------"
-SUBJECTS = %W[国語 数学 英語]
+class Gomoku
+  BOARD_SIZE = 5
+  WIN_CONDITION = 5
 
-def registration_student(students)
-  puts LINE
-  student = {
-    name: prompt("名前を入力してください"),
-    age: prompt("年齢を入力してください", :integer)
-  }
+  def initialize
+    @board = Array.new(BOARD_SIZE) { Array.new(BOARD_SIZE, '.') }
+    @current_player = 'X'
+  end
 
-  student[:scores] = SUBJECTS.to_h { |subject| [subject, input_score(subject)] }
-  students << student
-  p student
-  puts "#{ student[:name] }の登録が完了しました。"
-  puts LINE
-end
+  def play
+    loop do
+      print_board
+      puts "Player #{@current_player}, enter your move (row and column, separated by a space):"
+      row, col = gets.chomp.split.map(&:to_i)
 
-def input_score(subject)
-  loop do
-    score = prompt("#{subject}の得点は？", :integer)
-    if score.between?(0, 100)
-      return score
+      if valid_move?(row, col)
+        make_move(row, col)
+        if winner?(row, col)
+          print_board
+          puts "Player #{@current_player} wins!"
+          break
+        elsif board_full?
+          print_board
+          puts "It's a draw!"
+          break
+        end
+        switch_player
+      else
+        puts "Invalid move. Try again."
+      end
     end
-    puts "0 ~ 100の範囲で入力してください。"
+  end
+
+  private
+
+  def print_board
+    @board.each { |row| puts row.join(' ') }
+  end
+
+  def valid_move?(row, col)
+    row.between?(0, BOARD_SIZE - 1) && col.between?(0, BOARD_SIZE - 1) && @board[row][col] == '.'
+  end
+
+  def make_move(row, col)
+    @board[row][col] = @current_player
+  end
+
+  def switch_player
+    @current_player = @current_player == 'X' ? 'O' : 'X'
+  end
+
+  def board_full?
+    @board.all? { |row| row.none? { |cell| cell == '.' } }
+  end
+
+  def winner?(row, col)
+    directions = [[1, 0], [0, 1], [1, 1], [1, -1]]
+
+    directions.any? do |dr, dc|
+      count_stones(row, col, dr, dc) + count_stones(row, col, -dr, -dc) - 1 >= WIN_CONDITION
+    end
+  end
+
+  def count_stones(row, col, dr, dc)
+    count = 0
+    player = @current_player
+
+    loop do
+      break unless row.between?(0, BOARD_SIZE - 1) && col.between?(0, BOARD_SIZE - 1) && @board[row][col] == player
+
+      count += 1
+      row += dr
+      col += dc
+    end
+
+    count
   end
 end
 
-def show_students(students)
-  puts "確認したい生徒の番号を入力してください"
-  students.each_with_index do |student, index|
-    puts "#{index + 1} : #{ student[:name] }"
-  end
-  puts LINE
-  
-  input = prompt("数字を入力してください", :integer)
-  show_student(students[input - 1])
-end
-
-def show_student(student)
-  puts LINE
-  puts "名前：#{ student[:name] }"
-  puts "年齢：#{ student[:age] }"
-  student[:scores].each do |subject, score|
-    puts "#{ subject }：#{ score }"
-  end
-  puts LINE
-end
-
-def prompt(message, type = :string)
-  print "#{message}："
-  input = gets.chomp
-  return input.to_i if type == :integer
-  input
-end
-
-def main_menu
-  puts LINE
-  puts "行いたい項目を選択してください。"
-  puts "[1]点数を登録する"
-  puts "[2]点数を確認する"
-  puts "[3]終了する"
-  puts LINE
-end
-
-students = []
-
-while true do
-  main_menu
-
-  input = prompt("数字を入力してください", :integer)
-  case input
-  when 1
-    registration_student(students)
-  when 2
-    show_students(students)
-  when 3
-    exit
-  else
-    puts "無効な値です。"
-  end
-end
+# ゲームの実行
+game = Gomoku.new
+game.play
