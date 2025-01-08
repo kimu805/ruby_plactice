@@ -10,6 +10,7 @@ def registration_student(students)
 
   student[:scores] = SUBJECTS.to_h { |subject| [subject, input_score(subject)] }
   students << student
+  p student
   puts "#{ student[:name] }の登録が完了しました。"
   puts LINE
 end
