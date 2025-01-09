@@ -1,22 +1,12 @@
-count = gets.to_i
-
-users = []
-
-count.times do
-  name = gets.chomp
-  old = gets.to_i
-  birth = gets.chomp
-  state = gets.chomp
-
-  user = { name: name, old: old, birth: birth, state: state }
-  users << user
+def sequential_search(array,target)
+  array.each_with_index do |number, index|
+    if number == target
+      return "#{target}は#{index}番目にあります"
+    end
+  end
+  return "#{target}は見つかりませんでした"
 end
 
-users.each do |user|
-  puts "User{
-  nickname : #{user[:name]}
-  old : #{user[:old]}
-  birth : #{user[:birth]}
-  state : #{user[:state]}
-  }"
-end
+numbers = [10,20,30,40,50]
+puts sequential_search(numbers, 30)  # "30は2番目に見つかりました"
+puts sequential_search(numbers, 25)  # "25は見つかりませんでした"
