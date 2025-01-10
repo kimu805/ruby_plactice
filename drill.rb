@@ -3,10 +3,10 @@
 #  "caffelatte"を１文字ずつの配列に分解するにはcharsメソッドを使います。
 
 def count_str1(str)
-  count_hash = {}
+  count_hash = Hash.new(0)
   str.length.times do |i|
     target = str[i]
-    count_hash[target] ? count_hash[target] += 1 : count_hash[target] = 1
+    count_hash[target] += 1
   end
   p count_hash
 end
