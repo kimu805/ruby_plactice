@@ -8,7 +8,7 @@ def count_str1(str)
     target = str[i]
     count_hash[target] += 1
   end
-  p count_hash
+  puts count_hash
 end
 
 def count_str2(str)
@@ -16,7 +16,7 @@ def count_str2(str)
   str.chars.each do |char|
     count_hash[char] = count_hash.fetch(char, 0) + 1
   end
-  p count_hash
+  puts count_hash
 end
 
 input = "caffelatte"
