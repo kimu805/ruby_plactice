@@ -27,5 +27,5 @@ def count_str(str)
   puts char_count
 end
 
-input = "caffelatte"
+input = "caffelattecaffelatte"
 count_str(input)
