@@ -5,7 +5,6 @@ def bubble_sort(array)
       if array[i] > array[i + 1]
         array[i], array[i+1] = array[i+1], array[i]
       end
-      p array
     end
   end
   array
