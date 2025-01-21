@@ -1,15 +1,9 @@
-def find_n(x)
-  n = 1
-  factorial = 1
+def select_sort(array)
 
-  while factorial != x
-    n += 1
-    factorial *= n
-  end
-
-  n
 end
 
+array = [5, 6, 7, 4, 1, 3, 4, 9, 14, 41, 341, 15, 55, 51, 554, 9, 154]
 
-x = gets.to_i
-puts find_n(x)
+sorted_array = select_sort(array)
+
+puts "ソート後：#{sorted_array}"
