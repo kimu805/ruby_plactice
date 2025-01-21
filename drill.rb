@@ -52,6 +52,7 @@ def merge(left, right)
       sorted << right.shift
     end
   end
+
   sorted + left + right
 end
 
