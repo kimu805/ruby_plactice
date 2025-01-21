@@ -17,18 +17,19 @@ array = [64, 25, 12, 22, 11]
 # select_sorted_array = select_sort(array)
 # puts "ソート後：#{select_sorted_array}"
 
-def bubble_sort(array)
-  size = array.size
-  size.times do
-    (0...size - 1).each do |i|
-      if array[i] > array[i+1]
-        array[i], array[i+1] = array[i+1], array[i]
-      end
-      p array
-    end
-  end
-  array
-end
+# def bubble_sort(array)
+#   size = array.size
+#   size.times do
+#     (0...size - 1).each do |i|
+#       if array[i] > array[i+1]
+#         array[i], array[i+1] = array[i+1], array[i]
+#       end
+#       p array
+#     end
+#   end
+#   array
+# end
 
-bubble_sorted_array = bubble_sort(array)
-puts "ソート後：#{bubble_sorted_array}"
+# bubble_sorted_array = bubble_sort(array)
+# puts "ソート後：#{bubble_sorted_array}"
+
