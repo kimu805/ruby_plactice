@@ -33,3 +33,27 @@ array = [64, 25, 12, 22, 11]
 # bubble_sorted_array = bubble_sort(array)
 # puts "ソート後：#{bubble_sorted_array}"
 
+def merge_sort(array)
+  return array if array.size <= 1
+
+  center = array.size / 2
+  left = merge_sort(array[0...center])
+  right = merge_sort(array[center..-1])
+
+  merge(left, right)
+end
+
+def merge(left, right)
+  sorted = []
+  while !left.empty? && !right.empty?
+    if left.first <= right.first
+      sorted << left.shift
+    else
+      sorted << right.shift
+    end
+  end
+  sorted + left + right
+end
+
+merge_sorted_array = merge_sort(array)
+puts "ソート後：#{merge_sorted_array}"
