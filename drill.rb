@@ -9,7 +9,7 @@ def heap_sort(array)
 
   (size - 1).downto(1) do |i|
     array[0], array[i] = array[i], array[0]
-    heapify(array, size, 0)
+    heapify(array, i, 0)
   end
 
   array
@@ -35,4 +35,4 @@ def heapify(array, size, i)
 end
 
 heap_sorted_array = heap_sort(array)
-puts "ヒープソート後：#{eap_sorted_array}"
+puts "ヒープソート後：#{heap_sorted_array}"
