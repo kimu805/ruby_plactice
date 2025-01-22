@@ -1,15 +1,18 @@
 array = [64, 25, 12, 42, 11]
 
-def quick_sort(array)
-  return array if array.size <= 1
+def insert_sort(array)
+  (1...array.size).each do |i|
+    key = array[i]
+    j = i - 1
 
-  pivot = array[0]
-
-  left = array[1..].select { |x| x <= pivot }
-  right = array[1..].select { |x| x > pivot }
-
-  quick_sort(left) + [pivot] + quick_sort(right)
+    while j >= 0 && array[j] > key
+      array[j+1] = array[j]
+      j -= 1
+    end
+    array[j+1] = key
+  end
+  array
 end
 
-quick_sorted_array = quick_sort(array)
-puts "クイックソート後：#{quick_sorted_array}"
+insert_sorted_array = insert_sort(array)
+puts "挿入ソート後：#{insert_sorted_array}"
