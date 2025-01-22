@@ -1,37 +1,36 @@
 array = [64, 25, 12, 42, 11]
 
-def select_sort(array)
-  size = array.size
-  size.times do |i|
-    min_index = i
-    (i+1...size).each do |j|
-      if array[j] < array[min_index]
-        min_index = j
-      end
-    end
-    array[i], array[min_index] = array[min_index], array[i]
-  end
-  array
-end
-
-select_sorted_array = select_sort(array)
-puts "ソート後：#{select_sorted_array}"
-
-# def bubble_sort(array)
+# def select_sort(array)
 #   size = array.size
-#   size.times do
-#     (0...size - 1).each do |i|
-#       if array[i] > array[i+1]
-#         array[i], array[i+1] = array[i+1], array[i]
+#   size.times do |i|
+#     min_index = i
+#     (i+1...size).each do |j|
+#       if array[j] < array[min_index]
+#         min_index = j
 #       end
-#       p array
 #     end
+#     array[i], array[min_index] = array[min_index], array[i]
 #   end
 #   array
 # end
 
-# bubble_sorted_array = bubble_sort(array)
-# puts "ソート後：#{bubble_sorted_array}"
+# select_sorted_array = select_sort(array)
+# puts "選択ソート後：#{select_sorted_array}"
+
+def bubble_sort(array)
+  size = array.size
+  size.times do
+    (0...size-1).each do |i|
+      if array[i] > array[i+1]
+        array[i], array[i+1] = array[i+1], array[i]
+      end
+    end
+  end
+  array
+end
+
+bubble_sorted_array = bubble_sort(array)
+puts "バブルソート後：#{bubble_sorted_array}"
 
 # def merge_sort(array)
 #   return array if array.size <= 1
@@ -57,4 +56,4 @@ puts "ソート後：#{select_sorted_array}"
 # end
 
 # merge_sorted_array = merge_sort(array)
-# puts "ソート後：#{merge_sorted_array}"
+# puts "マージソート後：#{merge_sorted_array}"
