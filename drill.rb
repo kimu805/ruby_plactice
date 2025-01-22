@@ -2,7 +2,6 @@ array = [64, 25, 12, 42, 11]
 
 def quick_sort(array)
   return array if array.size <= 1
-  p array
 
   pivot = array[0]
 
