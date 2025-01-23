@@ -11,7 +11,6 @@ def heap_sort(array)
     array[0], array[i] = array[i], array[0]
     heapify(array, i, 0)
   end
-
   array
 end
 
@@ -32,7 +31,6 @@ def heapify(array, size, i)
     array[i], array[largest] = array[largest], array[i]
     heapify(array, size, largest)
   end
-
 end
 
 heap_sorted_array = heap_sort(array)
