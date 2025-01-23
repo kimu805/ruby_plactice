@@ -6,6 +6,11 @@ def heap_sort(array)
   (size / 2 - 1).downto(0) do |i|
     heapify(array, size, i)
   end
+
+  (size - 1).downto(1) do |i|
+    array[0], array[i] = array[i], array[0]
+    heapify(array, i, 0)
+  end
 end
 
 def heapify(array, size, i)
@@ -25,7 +30,7 @@ def heapify(array, size, i)
     array[i], array[largest] = array[largest], array[i]
     heapify(array, size, largest)
   end
-  
+
 end
 
 heap_sorted_array = heap_sort(array)
