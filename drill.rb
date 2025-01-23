@@ -75,3 +75,10 @@ array = [64, 25, 12, 42, 11]
 
 # quick_sorted_array = quick_sort(array)
 # puts "クイックソート後：#{quick_sorted_array}"
+
+def bubble_sort(array)
+  
+end
+
+bubble_sorted_array = bubble_sort(array)
+puts "バブルソート後：#{bubble_sorted_array}"
