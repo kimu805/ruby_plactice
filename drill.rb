@@ -9,6 +9,22 @@ def heap_sort(array)
 end
 
 def heapify(array, size, i)
+  largest = i
+  left = 2 * i + 1
+  right = 2 * i + 2
+
+  if left < size && array[left] > array[largest]
+    largest = left
+  end
+
+  if right < size && array[right] > array[largest]
+    largest = right
+  end
+
+  if largest != i
+    array[i], array[largest] = array[largest], array[i]
+    heapify(array, size, largest)
+  end
   
 end
 
