@@ -15,6 +15,9 @@ def insert_sort(array)
   array
 end
 
+insert_sorted_array = insert_sort(array)
+puts "挿入ソート後：#{insert_sorted_array}"
+
 # def select_sort(array)
 #   size = array.size
 
