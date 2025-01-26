@@ -1,4 +1,5 @@
-array = [64, 25, 12, 42, 11]
+# ランダムな整数の配列
+random_array = [34, 7, 23, 32, 5, 62, 31, 14]
 
 def insert_sort(array)
   (1...array.size).each do |i|
