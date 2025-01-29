@@ -9,11 +9,6 @@ cards = Array.new(N, false)
   end
 end
 
-false_card = []
-cards.each_with_index do |card, index|
-  if card == false
-    false_card << index + 1
-  end
+N.times do |i|
+  p i + 1 if !cards[i]
 end
-
-p false_card
