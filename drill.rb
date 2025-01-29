@@ -1,14 +1,13 @@
-num = 11
+num = 1000
+nums = []
 
-while true
-  if num.to_s == num.to_s.reverse && 
-     num.to_s(8) == num.to_s(8).reverse && 
-     num.to_s(2) == num.to_s(2).reverse
+while num < 10000
+  str = num.to_s
+  if str[0..1].to_i * str[2..3].to_i == str.reverse.to_i
+    nums << num
     puts num
-    break
   end
-  num += 2
+  num += 1
 end
 
-puts num.to_s(2)
-puts num.to_s(8)
+puts nums
