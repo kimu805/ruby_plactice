@@ -2,14 +2,10 @@ N = 100
 cards = Array.new(N, false)
 
 (2..N).each do |i|
-  index = i - 1
-  while index <= 100
-    if cards[index] == true
-      cards[index] = false
-    else
-      cards[index] = true
-    end
-    index += i
+  j = i - 1
+  while j <= cards.size
+    cards[j] = !cards[j]
+    j += i
   end
 end
 
