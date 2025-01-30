@@ -23,4 +23,5 @@ def change(target, coins, max)
   end
 end
 
-p count
+change(1000, [500, 100, 50, 10], 15)
+p @count
