@@ -1,10 +1,17 @@
-coins = [10, 50, 100, 500]
-count = 0
+def bubble_sort(array)
+  size = array.size
 
-(2..15).each do |i|
-  coins.repeated_combination(i).each do |coin_set|
-    count += 1 if coin_set.inject(:+) == 1000
+  size.times do
+    (0...size-1).each do |i|
+      if array[i] > array[i+1]
+        array[i], array[i+1] = array[i+1], array[i]
+      end
+    end
   end
+
+  array
 end
 
-p count
+array = [22, 58, 4, 61, 1]
+bubble_sorted_array = bubble_sort(array)
+puts "バブルソート後：#{bubble_sorted_array}"
