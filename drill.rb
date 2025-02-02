@@ -1,3 +1,5 @@
+array = [22, 58, 4, 61, 1]
+
 def bubble_sort(array)
   size = array.size
 
@@ -12,6 +14,5 @@ def bubble_sort(array)
   array
 end
 
-array = [22, 58, 4, 61, 1]
 bubble_sorted_array = bubble_sort(array)
 puts "バブルソート後：#{bubble_sorted_array}"
