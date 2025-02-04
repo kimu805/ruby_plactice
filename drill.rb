@@ -8,5 +8,4 @@ def cutbar(n, m, current_bar)
   end
 end
 
-bubble_sorted_array = bubble_sort(array)
-puts "バブルソート後：#{bubble_sorted_array}"
+puts cutbar(20, 3, 1)
