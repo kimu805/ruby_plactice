@@ -6,7 +6,6 @@ def cutbar(n, m, current_bar)
   else
     1 + cutbar(n, m, current_bar * 2)
   end
-  array
 end
 
 bubble_sorted_array = bubble_sort(array)
