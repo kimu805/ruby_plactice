@@ -1,3 +1,8 @@
-hash = Hash.new {|h, k| raise(KeyError, "Key #{k} does not exist in hash #{h}") }
-hash.default = nil
-p hash[:a]
+def hoge
+  x = 0
+  1.step(5,1) do |i|
+    x += i
+  end
+  puts x
+end
+hoge
