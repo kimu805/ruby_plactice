@@ -1,7 +1,5 @@
-def foo
-  -1 / 0
-rescue
-  p 1
+begin
+  1/0
+rescue ZeroDivisionError => e
+  p e.message
 end
-
-foo
