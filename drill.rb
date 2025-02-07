@@ -1,5 +1,7 @@
-begin
-  1/0
-rescue ZeroDivisionError => e
-  p e.message
+def bar
+  catch(:calc) do 
+    throw :calc, 100
+  end
 end
+
+p bar
