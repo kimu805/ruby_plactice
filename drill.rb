@@ -1,15 +1,23 @@
-class Foo
-  def initialize(a)
-    @a = a
-  end
-
-  def method1
+module Bar
+  def methodA
     @a
   end
 end
 
-foo1 = Foo.new(1)
-foo2 = Foo.new(2)
+class Foo
+  def initialize(a, b)
+    @a = a
+    @b = b
+  end
+end
 
-p foo1.method1
-p foo2.method1
+class FooExt < Foo
+  include Bar
+end
+
+fooExt = FooExt.new(3,4)
+p fooExt.methodA
+
+p Bar.ancestors
+p Bar.instance_methods
+p Bar.new
