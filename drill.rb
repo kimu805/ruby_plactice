@@ -1,2 +1,5 @@
-str = "1;2:3;4"
-p str.split(/[;]/)
+klass = Class.new
+
+hash = Hash[klass, 100]
+
+p hash[klass]
