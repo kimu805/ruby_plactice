@@ -1,1 +1,2 @@
-p String.method_defined?(:include?)
+str = "1;2:3;4"
+p str.split(/[;]/)
