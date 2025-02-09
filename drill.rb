@@ -1,5 +1,1 @@
-klass = Class.new
-
-hash = Hash[klass, 100]
-
-p hash[klass]
+p 7.to_s(3)
