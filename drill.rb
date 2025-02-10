@@ -1,4 +1,3 @@
-require "date"
-
-d = Date.new(2015, 1, 5)
-puts d.strftime("%D")
+# member?
+hash = {"banana" => "ole", "orange" => "juice"}
+p hash.member?("apple")
