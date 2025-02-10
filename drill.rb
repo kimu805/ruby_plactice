@@ -1,5 +1,7 @@
-str = "-1234567890-"
+s = <<'EOF'
+Hello,
+Ruby
+EOF
+'EOF'
 
-str.delete!("2-4")
-
-puts str
+p s
