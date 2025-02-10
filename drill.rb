@@ -1,7 +1,4 @@
-s = <<'EOF'
-Hello,
-Ruby
-EOF
-'EOF'
+require "date"
 
-p s
+d = Date.new(2015, 1, 5)
+puts d.strftime("%D")
