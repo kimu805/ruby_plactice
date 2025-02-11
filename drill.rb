@@ -1,1 +1,6 @@
-p ({a: 100, b: 100}).invert
+true
+false
+false
+true
+
+1 + 2 + 2 + 1
