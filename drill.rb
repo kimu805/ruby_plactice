@@ -1,4 +1,4 @@
-h = { 1 => "Hoge", 2 => "Piyo", 3 => "Fuga" }
-h.delete { |x, y| x < 2 }
+a = {"Foo" => "Hoge", "Bar" => "Piyo", "Baz" => "Fuga" }
+b = {"Foo" => "hoge", "Bar" => "piyo", "Baz" => "fuga" }
 
-p h
+p a.update(b).sort { |a, b| a[1] <=> b[1] }
