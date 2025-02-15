@@ -1,4 +1,17 @@
-a = {"Foo" => "Hoge", "Bar" => "Piyo", "Baz" => "Fuga" }
-b = {"Foo" => "hoge", "Bar" => "piyo", "Baz" => "fuga" }
+def hoge(step = 1)
+  current = 0
+  Proc.new {
+    current += step
+  }
+end
 
-p a.update(b).sort { |a, b| a[1] <=> b[1] }
+p1 = hoge
+p2 = hoge(2)
+
+p1.call
+p1.call
+p1.call
+p2.call
+p2.call
+
+p p2.call
