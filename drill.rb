@@ -1,17 +1,9 @@
-def hoge(step = 1)
-  current = 0
-  Proc.new {
-    current += step
-  }
+arr = (1..30).to_a
+container = []
+
+arr.each_cons(7) do |i|
+  p i
+  container << i
 end
 
-p1 = hoge
-p2 = hoge(2)
-
-p1.call
-p1.call
-p1.call
-p2.call
-p2.call
-
-p p2.call
+p container.length
