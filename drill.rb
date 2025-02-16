@@ -7,29 +7,40 @@ class Customer
   end
 
   def order(order_type, price)
+    if order_type == "alcohol" && age < 20
+      0
+    else
+      @price += price
+    end
     @price += price
   end
 end
 
-class CustomerOver20 < Customer
-  def order(order_type, price)
-    if age < 20
-      0
-    end
-    super
-  end
-end
+# class CustomerOver20 < Customer
+#   def order(order_type, price)
+#     if age < 20
+#       0
+#     end
+#     super
+#   end
+# end
 
 number_of_people, count_of_order = gets.split.map(&:to_i)
 customers = []
 
+# number_of_people.times do
+#   age = gets.to_i
+#   if age < 20
+#     customer = Customer.new(age)
+#   else
+#     customer = CustomerOver20.new(age)
+#   end
+#   customers << customer
+# end
+
 number_of_people.times do
   age = gets.to_i
-  if age < 20
-    customer = Customer.new(age)
-  else
-    customer = CustomerOver20.new(age)
-  end
+  customer = Customer.new(age)
   customers << customer
 end
 
