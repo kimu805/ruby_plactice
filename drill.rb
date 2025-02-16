@@ -1,5 +1,5 @@
 class Customer
-  attr_reader :total
+  attr_accessor :total
 
   def initialize
     @total = 0
@@ -14,13 +14,13 @@ end
 class AdultCustomer < Customer
   def initialize
     super
-    @has_ordered_alcohol = false
+    @alcohol_ordered = false
   end
 
   def order(item, price)
     if item == "0" || item == "alcohol"
-      @has_ordered_alcohol = true
-    elsif item == "food" && @has_ordered_alcohol
+      @alcohol_ordered = true
+    elsif item == "food" && @alcohol_ordered
       price -= 200
     end
     super(item, price)
@@ -38,7 +38,7 @@ customers = []
 
 number_of_people.times do
   age = gets.to_i
-  customers << (age >= 20 ? AdultCustomer.new : MinorCustomer.new)
+  customers << (age < 20 ? MinorCustomer.new : AdultCustomer.new)
 end
 
 order_count.times do
@@ -48,4 +48,6 @@ order_count.times do
   customers[id].order(item, price)
 end
 
-customers.each { |customer| p customer.total }
+customers.each do |customer|
+  p customer.total
+end
