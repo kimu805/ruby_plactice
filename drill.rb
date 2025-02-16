@@ -46,18 +46,18 @@ back_customers = []
 order_count.times do
   id, item, price = gets.split
   id = id.to_i - 1
-  price = price.to_i
+  price = price.to_i if price
   customers[id].order(item, price) if customers[id]
   
-  if item == "A"
-    removed_customer = customers.delete_at(id)
-    back_customers << removed_customer 
+  if item == "A" && id < customers.size
+    removed_customer = customers[id]
+    back_customers << removed_customer
+    customers[id] = nil
   end
 end
 
 back_customers.each do |customer|
-  p customer
-  # p customer.total
+  p customer.total
 end
 
 p back_customers.size
