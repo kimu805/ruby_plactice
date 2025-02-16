@@ -6,6 +6,7 @@ class Customer
   end
 
   def order(item, price)
+    price = 500 if item == "0"
     @total += price
   end
 end
@@ -17,7 +18,7 @@ class AdultCustomer < Customer
   end
 
   def order(item, price)
-    if item == "alcohol"
+    if item == "0" || item == "alcohol"
       @has_ordered_alcohol = true
     elsif item == "food" && @has_ordered_alcohol
       price -= 200
@@ -28,7 +29,7 @@ end
 
 class MinorCustomer < Customer
   def order(item, price)
-    super(item, price) unless item == "alcohol"
+    super(item, price) unless item == "0" || item == "alcohol"
   end
 end
 
@@ -44,7 +45,6 @@ order_count.times do
   id, item, price = gets.split
   id = id.to_i - 1
   price = price.to_i
-
   customers[id].order(item, price)
 end
 
