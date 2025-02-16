@@ -1,9 +1,7 @@
-arr = (1..30).to_a
-container = []
+class Customer
 
-arr.each_cons(7) do |i|
-  p i
-  container << i
 end
 
-p container.length
+class CustomerOver20
+  
+end
