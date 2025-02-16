@@ -6,22 +6,19 @@ class Customer
     @price = 0
   end
 
-  def food_order(price)
-    
+  def order(order_type, price)
+    @price += price
   end
 
-  def soft_drink_order(price)
-    
-  end
 end
 
 class CustomerOver20 < Customer
   
-  def alcohol_order(price)
+  def order(order_type, price)
     if age < 20
       0
     end
-
+    super
   end
 end
 
@@ -43,6 +40,9 @@ count_of_order.times do
   no_customer = no_customer.to_i
   price = price.to_i
 
+  customers[no_customer - 1].order(order_type, price)
+end
 
-  customers[no_customer - 1].pay(price)
+customers.each do |customer|
+  p customer.price
 end
