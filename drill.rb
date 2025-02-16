@@ -9,11 +9,9 @@ class Customer
   def order(order_type, price)
     @price += price
   end
-
 end
 
 class CustomerOver20 < Customer
-  
   def order(order_type, price)
     if age < 20
       0
