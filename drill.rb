@@ -1,9 +1,8 @@
 class Customer
-  attr_accessor :total, :back
+  attr_reader :total
 
   def initialize
     @total = 0
-    @back = false
   end
 
   def order(item, price)
@@ -15,13 +14,13 @@ end
 class AdultCustomer < Customer
   def initialize
     super
-    @alcohol_ordered = false
+    @has_ordered_alcohol = false
   end
 
   def order(item, price)
     if item == "0" || item == "alcohol"
-      @alcohol_ordered = true
-    elsif item == "food" && @alcohol_ordered
+      @has_ordered_alcohol = true
+    elsif item == "food" && @has_ordered_alcohol
       price -= 200
     end
     super(item, price)
@@ -42,23 +41,13 @@ number_of_people.times do
   customers << (age < 20 ? MinorCustomer.new : AdultCustomer.new)
 end
 
-back_customers = []
-
 order_count.times do
   id, item, price = gets.split
   id = id.to_i - 1
-  price = price.to_i if price
-  customers[id].order(item, price) if customers[id]
-  
-  if item == "A" && id < customers.size
-    removed_customer = customers[id]
-    back_customers << removed_customer
-    customers[id] = nil
-  end
+  price = price.to_i
+  customers[id].order(item, price)
 end
 
-back_customers.each do |customer|
+customers.each do |customer|
   p customer.total
 end
-
-p back_customers.size
