@@ -1,8 +1,9 @@
 class Customer
-  attr_accessor :total
+  attr_accessor :total, :back
 
   def initialize
     @total = 0
+    @back = false
   end
 
   def order(item, price)
