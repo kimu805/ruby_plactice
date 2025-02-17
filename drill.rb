@@ -41,13 +41,23 @@ number_of_people.times do
   customers << (age < 20 ? MinorCustomer.new : AdultCustomer.new)
 end
 
+back_customers = []
 order_count.times do
   id, item, price = gets.split
   id = id.to_i - 1
   price = price.to_i
-  customers[id].order(item, price)
+
+  if item == "A"
+    back_customer = customers[id]
+    back_customers << back_customer
+    customers[id] = nil
+  elsif customers[id]
+    customers[id].order(item, price)
+  end
 end
 
-customers.each do |customer|
+back_customers.each do |customer|
   p customer.total
 end
+
+p back_customers.size
