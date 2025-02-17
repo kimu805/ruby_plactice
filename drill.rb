@@ -1,9 +1,14 @@
 n, k, s = gets.split.map(&:to_i)
 
+big_array = Array.new
 n.times do
-  a_i, r1_i, r2_i = gets.split
+  small_array = gets.split(" ")
+  (1..2).each { |i| small_array[i] = small_array[i].to_i }
+  big_array << small_array
 end
 
-k.times do
+p big_array
+
+# k.times do
   
-end
+# end
