@@ -7,13 +7,14 @@ n.times do
   big_array << small_array
 end
 
-str = []
-str << big_array[s-1][0]
-k.times do
-  m = gets.to_i
-  current_array = big_array.select { |sub| sub.include?(str[-1]) }.flatten
-  next_array_number = current_array[m] - 1
-  str << big_array[next_array_number][0]
+moves = k.times.map { gets.to_i }
+
+current = s - 1
+spell = big_array[current][0]
+
+moves.each do |move|
+  current = big_array[current][move] - 1
+  spell += big_array[current][0]
 end
 
-puts str.join
+puts spell
