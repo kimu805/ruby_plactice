@@ -38,6 +38,10 @@ class Hero
   def pray(*args)
     @luck += args[0]
   end
+
+  def status
+    puts "#{level} #{hp} #{attack} #{defense} #{speed} #{intel} #{luck}"
+  end
 end
 
 number_of_hero, event_count = gets.split.map(&:to_i)
@@ -52,7 +56,7 @@ end
 event_count.times do
   id, item, *numbers = gets.split
   id = id.to_i - 1
-  numbers.map(&:to_i)
+  numbers = numbers.map(&:to_i)
 
   case item
   when "levelup"
@@ -66,4 +70,8 @@ event_count.times do
   when "pray"
     heroes[id].pray(*numbers)
   end
+end
+
+heroes.each do |hero|
+  hero.status
 end
