@@ -21,6 +21,11 @@ class Hero
     @luck += luck
   end
 
+  def muscle_training(hp, attack)
+    @hp += hp
+    @attack += attack
+  end
+
   def running(defense, speed)
     @defense += defense
     @speed += speed
@@ -34,3 +39,6 @@ class Hero
     @luck += luck
   end
 end
+
+number_of_hero, event_count = gets.split.map(&:to_i)
+
