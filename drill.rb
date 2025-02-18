@@ -1,4 +1,3 @@
-class Hero
-  attr_accessor :level, :hp, :attack, :defense, :speed, :intel, :luck
+x, y, z = 1, [2, 3]
 
 p z
