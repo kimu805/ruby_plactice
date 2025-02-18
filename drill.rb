@@ -5,11 +5,7 @@ even_nums.each do |n|
   first = n
   n = n * 3 + 1
   begin
-    if n.even?
-      n /= 2
-    else
-      n = n * 3 + 1
-    end
+    n = n.even? ? n / 2 : n * 3 + 1
   end until n == first || n == 1
   target_nums << first if n == first
 end
