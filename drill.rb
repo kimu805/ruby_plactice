@@ -1,3 +1,3 @@
-File.open("list.txt") do |io|
-  io.write(Time.now.strftime("%Y/%m/%d"))
-end
+str = "Liberty Fish   \r\n"
+str.strip!
+p str
