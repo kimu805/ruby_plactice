@@ -1,6 +1,10 @@
-a = [1, 2, 3]
-b = a
-b[4] = 10
-
-p a
-p b
+file = File.open("list.txt", "r")
+begin
+  while true
+    puts file.readline  # 1行ずつ出力
+  end
+rescue EOFError
+  puts "End of file reached."
+ensure
+  file.close
+end
