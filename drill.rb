@@ -1,6 +1,3 @@
-heredoc = <<EOS
-           次のEOSまでが
-        　　文字列リテラルとして
-　　　      扱われます。
-EOS
-puts heredoc
+arr = [1, 2, 3, 4, 5]
+p arr.delete(1)
+p arr
