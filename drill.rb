@@ -1,3 +1,6 @@
-str = "Liberty Fish   \r\n"
-str.strip!
-p str
+heredoc = <<EOS
+           次のEOSまでが
+        　　文字列リテラルとして
+　　　      扱われます。
+EOS
+puts heredoc
