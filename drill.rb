@@ -1,10 +1,3 @@
-file = File.open("list.txt", "r")
-begin
-  while true
-    puts file.readline  # 1行ずつ出力
-  end
-rescue EOFError
-  puts "End of file reached."
-ensure
-  file.close
+File.open("list.txt") do |io|
+  io.write(Time.now.strftime("%Y/%m/%d"))
 end
