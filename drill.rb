@@ -1,10 +1,16 @@
-n, k = gets.split.map(&:to_i)
+H, W, N = gets.split.map(&:to_i)
 
-arr = n.times.flat_map { gets.split.map(&:to_i) }
-section = k.times.map { gets.split.map { |x| x.to_i - 1 } }
+arr = H.times.map { gets.split.map(&:to_i) }
+ranges = N.times.map { gets.split.map { |x| x.to_i - 1 } }
 
-puts "-----"
+puts "-------"
 
-section.each do |l, r|
-  puts arr[l..r].sum
+ranges.each do |x, y|
+  target = []
+  (0..x).each do |i|
+    (0..y).each do |j|
+      target << arr[i][j]
+    end
+  end
+  p target.sum
 end
