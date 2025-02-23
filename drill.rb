@@ -1,16 +1,10 @@
 n, k = gets.split.map(&:to_i)
 
-arr = []
-n.times.map { arr << gets.split.map(&:to_i) }
-arr.flatten!
+arr = n.times.flat_map { gets.split.map(&:to_i) }
+index = k.times.flat_map { gets.split.map(&:to_i) }
 
-index = []
-k.times.map { index << gets.split.map(&:to_i) }
-index.flatten!
+puts "--------"
 
-puts "------"
-
-index.each do |index|
-  target_arr = arr[0..index-1]
-  puts target_arr.sum
+index.each do |idx|
+  puts arr[0...idx].sum
 end
