@@ -4,5 +4,9 @@ board = H.times.map { gets.chomp }
 prompt = N.times.map { gets.split.map(&:to_i) }
 
 prompt.each do |x, y|
-  puts board[x][y]
+  board[x][y] = "#"
+end
+
+board.each do |row|
+  puts row
 end
