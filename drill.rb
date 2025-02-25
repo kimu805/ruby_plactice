@@ -1,15 +1,26 @@
-y, x, D = gets.split.map.with_index { |val, i| i != 2 ? val.to_i : val }
-y = y.to_i
-x = x.to_i
+x, y, n = gets.split.map(&:to_i)
 
-directions = { N: [-1, 1], E: [-1, 1], S: [1, -1], W: [1, -1] }
-d = gets.chomp
+total = 0
+(1..n).each do |cnt|
+  total += cnt
+  if cnt % 4 == 1 || cnt % 4 == 2
+    x += cnt / 2 if cnt.odd?
+    y += cnt / 2 if cnt.even?
+  else
+    x -= cnt / 2 if cnt.odd?
+    y -= cnt / 2 if cnt.even?
+  end
 
-case D
-when "N" , "S"
-  x += d == "L" ? directions[D.to_sym][0] : directions[D.to_sym][1]
-when "E" , "W" 
-  y += d == "L" ? directions[D.to_sym][0] : directions[D.to_sym][1]
+  if total > n
+    diff = total - n
+    if cnt % 4 == 1 || cnt % 4 == 2
+      x += diff if cnt.odd?
+      y += diff if cnt.even?
+    else
+      x -= diff if cnt.odd?
+      y -= diff if cnt.even?
+    end
+  end
 end
 
 puts y.to_s + " " + x.to_s
