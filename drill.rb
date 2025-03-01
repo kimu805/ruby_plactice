@@ -16,7 +16,6 @@ n.times do
 
   stop = false
   l.times do
-    p "nouの方向は#{now % 4}"
     ny = y + move[now % 4][0]
     nx = x + move[now % 4][1]
     if !(0 <= ny && ny <= h - 1 && 0 <= nx && nx <= w - 1 && board[ny][nx] != '#')
