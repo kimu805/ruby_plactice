@@ -34,5 +34,5 @@ n.times do
 end
 
 board.each do |row|
-  p row
+  puts row.join
 end
