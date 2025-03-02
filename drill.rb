@@ -16,8 +16,3 @@ logs.each_with_index do |log, index|
     past_log << log
   end
 end
-
-remaining_players = people.each_with_index.reject { |_, index| eliminated[index] }.map(&:first)
-
-puts remaining_players.size
-puts remaining_players.first
