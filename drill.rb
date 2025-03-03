@@ -14,7 +14,7 @@ s.each do |word|
   violate_rule_2 = bef != "" && bef[-1] != word[0]
   violate_rule_4 = word[-1] == "z"
   if violate_rule_1_3 || violate_rule_2 || violate_rule_4
-    alive[player] == false
+    alive[player] = false
     bef = ""
   else
     d.delete(word)
