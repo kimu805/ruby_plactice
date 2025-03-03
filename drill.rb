@@ -11,9 +11,14 @@ logs.each_with_index do |log, index|
   player_index = index % total_people
   if !words.include?(log) || past_log.include?(log) || log[-1] == "z" || (last_log && last_log[-1] != log[0])
     eliminated[player_index] = true
+    total_people -= 1
   else
     past_log << log
   end
 end
 
-p eliminated
+p eliminated.count(false)
+indexes = eliminated.each_index.select { |i| eliminated[i] == false }
+indexes.each do |index|
+  p index + 1
+end
