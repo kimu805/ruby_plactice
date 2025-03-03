@@ -15,3 +15,5 @@ logs.each_with_index do |log, index|
     past_log << log
   end
 end
+
+p eliminated
