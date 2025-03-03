@@ -1,5 +1,4 @@
 n, k, m = gets.split.map(&:to_i)
-people = Array.new(n) { ("A".."Z").to_a.sample }
 words = k.times.map { gets.chomp }
 logs = m.times.map { gets.chomp }
 
