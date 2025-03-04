@@ -1,3 +1,5 @@
+require "set"
+
 n, k, m = gets.split.map(&:to_i)
 words = Set.new(k.times.map { gets.chomp })
 logs = m.times.map { gets.chomp }
