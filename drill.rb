@@ -9,7 +9,7 @@ n.times do
   time, direct = gets.split.map.with_index { |val, index| index == 0 ? val.to_i : val }
 
   stop = false
-  time.times do |i|
+  100.times do |i|
     if time == i
       if direct == "L"
         now -= 1
@@ -27,6 +27,8 @@ n.times do
 
     y, x = ny, nx
     puts y.to_s + " " + x.to_s
+
+    break if time == i
   end
 
   if stop
@@ -34,3 +36,4 @@ n.times do
     break
   end
 end
+
