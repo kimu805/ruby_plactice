@@ -20,17 +20,17 @@ n.times do
 
     ny = y + move[now % 4][0]
     nx = x + move[now % 4][1]
-    if 0 <= ny && ny < h && 0 <= nx && nx < w && board[ny][nx] != "#"
+    if !(0 <= ny && ny < h && 0 <= nx && nx < w && board[ny][nx] != "#")
       stop = true
       break
     end
 
     y, x = ny, nx
+    puts y.to_s + " " + x.to_s
   end
 
   if stop
     puts "Stop"
-    puts y.to_s + " " + x.to_s
     break
   end
 end
