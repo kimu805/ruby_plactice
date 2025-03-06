@@ -1,6 +1,7 @@
 h, w, sy, sx, n = gets.split.map(&:to_i)
 board = h.times.map { gets.chomp.split("") }
 turns = n.times.map { gets.split.map.with_index { |val, index| index == 0 ? val.to_i : val } }
+p turns
 
 move = [[-1, 0], [0, 1], [1, 0], [0, -1]]
 now = 0
@@ -26,5 +27,5 @@ t, d = turns.shift
 
   y, x = ny, nx
   puts y.to_s + " " + x.to_s
-  
+
 end
