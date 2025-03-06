@@ -6,4 +6,3 @@ move = [[-1, 0], [0, 1], [1, 0], [0, -1]]
 now = 0
 
 y, x = sy, sx
-t, d = turns.shift
