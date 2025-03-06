@@ -8,6 +8,7 @@ now = 0
 
 y, x = sy, sx
 t, d = turns.shift
+puts "-------------------"
 100.times do |time|
   if time == t
     if d == "L"
