@@ -16,3 +16,15 @@ t, d = turns.shift
     end
     t, d = turns.shift if !turns.empty?
   end
+
+  ny = y + move[now % 4][0]
+  nx = x + move[now % 4][1]
+  if !(0 <= ny && ny <= h - 1 && 0 <= nx && nx <= w - 1 && board[ny][nx] != '#')
+    puts "Stop"
+    break
+  end
+
+  y, x = ny, nx
+  puts y.to_s + " " + x.to_s
+  
+end
