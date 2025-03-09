@@ -7,6 +7,5 @@ def is_loop(n)
   return false
 end
 
-puts 2.step(10000, 2).count { |i|
-  is_loop(i)
-}
+change(1000, [500, 100, 50, 10], 15)
+puts @cnt
