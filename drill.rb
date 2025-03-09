@@ -1,8 +1,12 @@
-def is_loop(n)
-  check = n * 3 + 1
-  while check != 1 do
-    check = check.even? ? check / 2 : check * 3 + 1
-    return true if check == n
+@cnt = 0
+def change(target, coins, usable)
+  coin = coins.shift
+  if coins.size == 0
+    @cnt += 1 if target / coin <= usable
+  else
+    (0..target/coin).each do |i|
+      change(target - coin * i, coins.clone, usable - i)
+    end
   end
   return false
 end
