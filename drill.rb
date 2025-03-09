@@ -8,7 +8,6 @@ def change(target, coins, usable)
       change(target - coin * i, coins.clone, usable - i)
     end
   end
-  return false
 end
 
 change(1000, [500, 100, 50, 10], 15)
