@@ -16,8 +16,9 @@ end
 move.each do |y, x|
   ny = sy + y
   nx = sx + x
-  puts ny
-  board[ny][nx] = "*" if ny != -1 && nx != -1
+  if 0 <= ny && ny <= h - 1 && 0 <= nx && nx <= w - 1
+    board[ny][nx] = "*" 
+  end
 end
 
 board.each do |row|
