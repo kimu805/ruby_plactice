@@ -1,5 +1,5 @@
 h, w = gets.split.map(&:to_i)
-board = h.times.map { gets.chomp }
+board = h.times.map { gets.chomp.split("") }
 
 done = false
 board.each.with_index do |row, y|
@@ -14,6 +14,12 @@ board.each.with_index do |row, y|
       board[ny][x] = '*'
       board[y][px] = '*'
       board[y][nx] = '*'
+
+      done = true
+      break
     end
   end
+  break if done
 end
+
+board.each { |row| puts row.join("") }
