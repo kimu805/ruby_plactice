@@ -14,9 +14,9 @@ board.each_with_index do |row, y|
           board[ny][nx] = "*"
         end
       end
+      done = true
+      break
     end
-    done = true
-    break
   end
   break if done
 end
