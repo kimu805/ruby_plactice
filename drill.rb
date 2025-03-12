@@ -13,7 +13,16 @@ board.each_with_index do |row, y|
   end
 end
 
+queue = []
 
+move.each do |y, x|
+  ny = sy + y
+  nx = sx + x
+  if 0 <= ny && ny <= h - 1 && 0 <= nx && nx <= w - 1 && board[ny][nx] != "#" && board[ny][nx] != "*"
+    board[ny][nx] = "*"
+    queue << [ny, nx]
+  end
+end
 
 
 board.each do |row|
