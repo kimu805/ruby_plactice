@@ -4,15 +4,17 @@ board = h.times.map { gets.chomp.split("") }
 move = [[-1, 0], [0, 1], [1, 0], [0, -1]]
 
 player = [[0, 0]]
+stop = false
 board.each_with_index do |row, y|
   row.each_with_index do |val, x|
     if val == "*"
       player[0] = [y, x]
       board[y][x] = 0
+      stop = true
       break
     end
   end
-  break
+  break if stop
 end
 
 i = 1
