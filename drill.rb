@@ -17,7 +17,6 @@ board.each_with_index do |row, y|
   break if stop
 end
 
-
 i = 1
 while !player.empty?
   size = player.size
