@@ -6,3 +6,10 @@ board.each_with_index do |row, y|
   row.each_with_index { |val, x| player[0] = [y, x] if val == "*" }
 end
 
+move = [[-1, 0], [0, 1], [1, 0], [0, -1]]
+while !player.empty?
+  y, x = player.shift
+  board[y][x] = "*"
+
+  
+end
