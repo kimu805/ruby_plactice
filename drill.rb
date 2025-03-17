@@ -11,5 +11,14 @@ while !player.empty?
   y, x = player.shift
   board[y][x] = "*"
 
-  
+  move.each do |t, s|
+    ny = y + t
+    nx = x + s
+
+    if 0 <= ny && ny <= h - 1 && 0 <= nx && nx <= w - 1 && board[ny][nx] != "#" && board[ny][nx] != "*"
+      player.push [ny, nx]
+    end
+  end
 end
+
+board.each { |row| puts row.join("") }
