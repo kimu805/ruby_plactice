@@ -29,3 +29,15 @@ def binary_search(array, target)
   end
   return false
 end
+
+array = [63, 24, 52, 4, 82, 48]
+sorted_array = insert_sort(array)
+p sorted_array
+target = gets.to_i
+result = binary_search(sorted_array, target)
+
+if result
+  puts "#{target}は#{result}番目にあります"
+else
+  puts "#{target}はこの中にはありません。"
+end
