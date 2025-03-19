@@ -1,9 +1,9 @@
 def insert_sort(array)
   size = array.size
-  size.times do |i|
-    (i+1...size).each do |j|
-      if array[i] > array[j]
-        array[i], array[j] = array[j], array[i]
+  size.times do
+    (0...size-1).each do |i|
+      if array[i] > array[i+1]
+        array[i], array[i+1] = array[i+1], array[i]
       end
     end
   end
