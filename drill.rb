@@ -14,6 +14,7 @@ def binary_search(array, target)
   left = 0
   right = array.size - 1
 
+  
   while left <= right
     center = (left + right) / 2
     if array[center] == target
