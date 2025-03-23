@@ -15,18 +15,15 @@ board.each_with_index do |row, y|
   break if stop
 end
 
-p player
-p time_box
-
-# move = [[-1, 0], [0, 1], [1, 0], [0, -1]]
-# while !player.empty?
-#   y, x, time = player.shift
-#   board[sy][sx] = "*"
-#   move.each do |t, s|
-#     ny = y + t
-#     nx = x + s
-#     if 0 <= ny && ny <= h - 1 && 0 <= nx && nx <= w - 1 && board[ny][nx] == "."
-#       player << [ny, nx, time + 1]
-#     end
-#   end
-# end
+move = [[-1, 0], [0, 1], [1, 0], [0, -1]]
+while !player.empty?
+  y, x, time = player.shift
+  board[sy][sx] = "*"
+  move.each do |t, s|
+    ny = y + t
+    nx = x + s
+    if 0 <= ny && ny <= h - 1 && 0 <= nx && nx <= w - 1 && board[ny][nx] == "."
+      player << [ny, nx, time + 1]
+    end
+  end
+end
