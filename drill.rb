@@ -18,7 +18,7 @@ end
 move = [[-1, 0], [0, 1], [1, 0], [0, -1]]
 while !player.empty?
   y, x, time = player.shift
-  board[sy][sx] = "*"
+  board[y][x] = time_box.include?(time) ? "?" : "*"
   move.each do |t, s|
     ny = y + t
     nx = x + s
@@ -26,4 +26,8 @@ while !player.empty?
       player << [ny, nx, time + 1]
     end
   end
+end
+
+board.each do |row|
+  puts row.join("")
 end
