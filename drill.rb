@@ -1,0 +1,3 @@
+name = "kimura"
+
+puts name
