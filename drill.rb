@@ -1,9 +1,14 @@
-class MyClass
-  def my_method
-    @x = 2
-    binding
+class Config
+  def initialize(&block)
+    instance_eval(&block)
+  end
+
+  def set(key, value)
+    puts "#{key} = #{value}"
   end
 end
 
-b = MyClass.new.my_method
-p eval "@x", b
+Config.new do
+  set :host, "localhost"
+  set :port, 3000
+end
