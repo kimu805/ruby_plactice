@@ -1,5 +1,9 @@
-def a_method(a, b)
-  a + yield(a, b)
+def my_method
+  x = "goodbye"
+  yield("cruel")
 end
 
-p a_method(1, 2) {|x, y| (x + y) * 3}
+x = "Hello"
+p my_method do |y| 
+  "#{x}, #{y} world"
+end
