@@ -1,6 +1,9 @@
-array = [10, 20]
-element = 30
+class MyClass
+  def my_method
+    @x = 2
+    binding
+  end
+end
 
-new_array = eval("array << element")
-
-p new_array
+b = MyClass.new.my_method
+p eval "@x", b
