@@ -1,9 +1,6 @@
-def my_method
-  x = "goodbye"
-  yield("cruel")
-end
+array = [10, 20]
+element = 30
 
-x = "Hello"
-p my_method do |y| 
-  "#{x}, #{y} world"
-end
+new_array = eval("array << element")
+
+p new_array
