@@ -1,12 +1,14 @@
-class Greeting
-  def initialize(text)
-    @text  = text
-  end
-
-  def welcome
-    @text
+module StringExtensions
+  refine String do
+    def reverse 
+      "esrever"
+    end
   end
 end
 
-my_object = Greeting.new("hello")
-p my_object.class
+module StringStuff
+  using StringExtensions
+  puts "my_string".reverse
+end
+
+puts "my_string".reverse
